@@ -1,0 +1,52 @@
+﻿@using Website.Models
+@model caidatthongso
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles
+{
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Cài đặt thông số</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="box box-primary">
+                @using (Html.BeginForm("Create", "Caidat", FormMethod.Post, new { @class = "", role = "form" }))
+                {
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Kênh</label>
+                            @Html.TextBoxFor(m => m.Kenh_1, new { placeholder = "", @class = "form-control", autocomplete = "off" })
+                        </div>
+                        <div class="form-group">
+                            <label>Tag 1</label>
+                            @Html.TextBoxFor(m => m.Tag_1, new { placeholder = "", @class = "form-control", autocomplete = "off" })
+                        </div>
+                        <div class="form-group">
+                            <label>Tag 2</label>
+                            @Html.TextBoxFor(m => m.Tag_2, new { placeholder = "", @class = "form-control", autocomplete = "off" })
+                        </div>
+                        <div class="form-group">
+                            <label>Trạng thái</label>
+                            @Html.CheckBoxFor(m => m.CheckBoxValue, new { @class="form-control", data_toggle = "toggle" })
+                            @*<input type="checkbox" checked data-toggle="toggle" class="form-control">*@
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+}
+
